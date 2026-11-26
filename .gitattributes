@@ -1,0 +1,30 @@
+# Default: normalise text to LF in the repo and in the working tree
+*               text=auto eol=lf
+
+# Windows-only scripts must keep CRLF or cmd/PowerShell misbehave
+*.cmd           text eol=crlf
+*.bat           text eol=crlf
+*.ps1           text eol=crlf
+
+# Shell scripts must stay LF (they run in Git Bash, WSL and containers)
+*.sh            text eol=lf
+
+# Binary files: no diff, no line-ending changes
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.ico           binary
+*.pdf           binary
+*.docx          binary
+*.xlsx          binary
+*.pptx          binary
+*.parquet       binary
+*.hyper         binary
+*.jar           binary
+*.whl           binary
+*.zip           binary
+*.gz            binary
+
+# Show these as generated in GitHub diffs
+*.drawio.svg    linguist-generated

@@ -1,0 +1,64 @@
+# ── Secrets and local config ──────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_*
+!config/env/*.env                 # profile files hold no secrets (P0-02)
+
+# ── Generated data and build output ───────────────────────
+data/
+build/
+dist/
+*.egg-info/
+spark-warehouse/
+metastore_db/
+derby.log
+checkpoints/
+logs/
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# ── Airflow (local runs) ──────────────────────────────────
+airflow.db
+airflow.cfg
+airflow-webserver.pid
+simple_auth_manager_passwords.json.generated
+
+# ── Terraform / Databricks ────────────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+!*.tfvars.example
+.databricks/
+
+# ── Tableau extracts (data); .twb workbooks are committed ─
+*.hyper
+*.twbx
+
+# ── Editors and OS ────────────────────────────────────────
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*                               # Word/Excel lock files
+
+# ── Temporary uploads ─────────────────────────────────────
+bundle-*.md
