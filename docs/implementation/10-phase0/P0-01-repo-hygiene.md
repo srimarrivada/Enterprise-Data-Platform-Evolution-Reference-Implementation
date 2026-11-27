@@ -59,8 +59,11 @@ rm -rf data build .env
 | Symptom | Cause | Fix |
 |---|---|---|
 | `warning: LF will be replaced by CRLF` | Global `core.autocrlf=true` | `git config core.autocrlf false` in this repo |
-| Every file shows as modified after adding `.gitattributes` | Files committed before normalisation | `git add --renormalize . && git commit -m "chore: normalise line endings"` |
+| Every file shows as modified after adding `.gitattributes` | Files committed before normalisation | `git add --renormalize . && git commit` |
+| `git ls-files --eol` shows `i/lf w/crlf` | Files saved with CRLF before `.gitattributes` existed | Clean tree only: `git rm -r --cached -q . && git reset --hard HEAD`; install the EditorConfig extension in VS Code |
 | `.sh` fails in WSL with `$'\r': command not found` | Script saved with CRLF | Re-save as LF; `.gitattributes` prevents it from now on |
+| An ignore rule has no effect | Text after a pattern is part of the pattern in `.gitignore` | Put comments on their own line |
+| Hadoop/Spark scripts fail on the repo path | Path contains spaces or is very long | Keep the repo at a short path without spaces, e.g. `D:\Projects\...` |
 
 ## Done Checklist
 

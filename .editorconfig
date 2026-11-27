@@ -12,7 +12,8 @@ indent_size = 4
 indent_size = 2
 
 [*.md]
-trim_trailing_whitespace = false   # two trailing spaces = line break in Markdown
+# Two trailing spaces are a line break in Markdown
+trim_trailing_whitespace = false
 
 [Makefile]
 indent_style = tab
