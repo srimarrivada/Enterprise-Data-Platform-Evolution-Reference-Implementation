@@ -1,13 +1,15 @@
-# ── Secrets and local config ──────────────────────────────
+# Comments must be on their own line: git treats "#" after a pattern as part of the pattern.
+
+# Secrets and local config
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-id_*
-!config/env/*.env                 # profile files hold no secrets (P0-02)
+id_rsa*
+id_ed25519*
 
-# ── Generated data and build output ───────────────────────
+# Generated data and build output
 data/
 build/
 dist/
@@ -18,7 +20,7 @@ derby.log
 checkpoints/
 logs/
 
-# ── Python ────────────────────────────────────────────────
+# Python
 __pycache__/
 *.py[cod]
 .venv/
@@ -31,13 +33,13 @@ coverage.xml
 htmlcov/
 .ipynb_checkpoints/
 
-# ── Airflow (local runs) ──────────────────────────────────
+# Airflow (local runs)
 airflow.db
 airflow.cfg
 airflow-webserver.pid
 simple_auth_manager_passwords.json.generated
 
-# ── Terraform / Databricks ────────────────────────────────
+# Terraform and Databricks (provider lock files are committed)
 .terraform/
 *.tfstate
 *.tfstate.*
@@ -46,19 +48,21 @@ crash.log
 !*.tfvars.example
 .databricks/
 
-# ── Tableau extracts (data); .twb workbooks are committed ─
+# Tableau extracts hold data; .twb workbooks are committed
 *.hyper
 *.twbx
 
-# ── Editors and OS ────────────────────────────────────────
-.vscode/
+# Editors and OS (VS Code: only the shared extension list is committed)
+.vscode/*
 !.vscode/extensions.json
 .idea/
 *.swp
 .DS_Store
 Thumbs.db
 desktop.ini
-~$*                               # Word/Excel lock files
 
-# ── Temporary uploads ─────────────────────────────────────
+# Word and Excel lock files
+~$*
+
+# Temporary uploads
 bundle-*.md
